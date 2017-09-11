@@ -1,26 +1,22 @@
 # BOSH release for bazel
 
-This BOSH release and deployment manifest deploy a cluster of bazel.
+I packaged up https://bazel.build/ once, then realized I didn't need it. So I'll put it in its own BOSH release for the next person who wants the `bazel` package.
 
 ## Install
 
 ```
 export BOSH_ENVIRONMENT=<bosh-alias>
 export BOSH_DEPLOYMENT=bazel
-bosh deploy manifests/bazel.yml --vars-store tmp/creds.yml
+bosh deploy manifests/bazel.yml
 ```
 
-If your BOSH has Credhub, then you can omit `--vars-store` flag. It is used to generate any passwords/credentials/certificates required by `manifests/bazel.yml`.
+## Reuse package
 
-
-## Development
-
-As a developer of this release, create new releases, upload and deploy them:
+You can copy the package into your own BOSH release:
 
 ```
-bosh create-release --force && \
-  bosh -n upload-release && \
-  bosh deploy manifests/bazel.yml --vars-store tmp/creds.yml
+gem install bosh-gen
+bosh sync-blobs
+cd ../my-boshrelease
+bosh-gen extract-pkg ../bazel-boshrelease/packages/bazel
 ```
-
-If your BOSH has Credhub, then you can omit `--vars-store` flag. It is used to generate any passwords/credentials/certificates required by `manifests/bazel.yml`.
