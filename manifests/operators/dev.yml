@@ -1,0 +1,6 @@
+---
+- type: replace
+  path: /releases/name=bazel
+  value:
+    name: bazel
+    version: latest

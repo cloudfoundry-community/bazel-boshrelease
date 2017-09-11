@@ -1,0 +1,6 @@
+---
+name: bazel
+packages: []
+templates:
+  ignoreme: ignoreme
+properties: {}
