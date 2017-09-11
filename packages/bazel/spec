@@ -1,0 +1,5 @@
+---
+name: bazel
+dependencies: []
+files:
+- bazel/bazel-*-installer-linux-x86_64.sh

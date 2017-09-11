@@ -1,6 +1,6 @@
 ---
 name: bazel
-packages: []
+packages: [bazel]
 templates:
   ignoreme: ignoreme
 properties: {}
